@@ -22,9 +22,9 @@
 &lt;p&gt;Riita is a second-year student of Tokyo Institute of Technology.&lt;br&gt;
 He likes Computer Science and Business Intelligence.&lt;br&gt;
 He wants to enrich human life with technology and bussiness.&lt;/p&gt;
-&lt;p&gt;以下のような技術を持っている。
+&lt;p&gt;これまでの開発経験を列挙する。
 I have the following skills.&lt;/p&gt;
-&lt;h3 id=&#34;skills&#34;&gt;Skills&lt;/h3&gt;
+&lt;h3 id=&#34;skill&#34;&gt;Skill&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Web&lt;/em&gt;&lt;br&gt;
 React, golang(echo, beego), Ruby(Rails)&lt;/li&gt;
