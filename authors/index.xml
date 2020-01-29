@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors | Riita</title>
+    <link>https://riita10069.github.io/portfolio/authors/</link>
+      <atom:link href="https://riita10069.github.io/portfolio/authors/index.xml" rel="self" type="application/rss+xml" />
+    <description>Authors</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Authors</title>
+      <link>https://riita10069.github.io/portfolio/authors/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>https://riita10069.github.io/portfolio/authors/admin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://riita10069.github.io/portfolio/authors/admin/</guid>
+      <description>&lt;p&gt;東工大情報通信系2年。株式会社エブリーでReactとgolangを用いた開発と、新規事業MAMADAYSのメディア事業の立ち上げを担当した。株式会社JourneyではBIチームの責任者としてMLOpsとDWH構築、KPIダッシュボードの作成など。株式会社エウレカにて、SREチームとしてGitOpsと呼ばれるようなCI/CDパイプラインの作成などに貢献。
+ビジネスと開発の双方からのアプローチで問題解決をしていけるような人材へと成長したい。&lt;/p&gt;
+&lt;p&gt;Riita is a second-year student of Tokyo Institute of Technology.&lt;br&gt;
+He likes Computer Science and Business Intelligence.&lt;br&gt;
+He wants to enrich human life with technology and bussiness.&lt;/p&gt;
+&lt;p&gt;以下のような技術を持っている。
+I have the following skills.&lt;/p&gt;
+&lt;h3 id=&#34;skills&#34;&gt;Skills&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Web&lt;/em&gt;&lt;br&gt;
+React, golang(echo, beego), Ruby(Rails)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Infra&lt;/em&gt;&lt;br&gt;
+GCE(Ansible), GKE(Knative, Istio, kustomize), CloudRun, nginx(sidecar), micro service&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Database&lt;/em&gt;&lt;br&gt;
+MySQL(Cloud SQL, spanner), Datastore, BigQuery&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;DevOps&lt;/em&gt;&lt;br&gt;
+circleCI, cloud build, Terraform, Ansible&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;MLOps&lt;/em&gt;&lt;br&gt;
+jupyter, papermill, cloud compsoer, DWH, flask(pandas-gbq), Dataproc&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Collect Data&lt;/em&gt;&lt;br&gt;
+fluentd, stackdriver, Pub/Sub, Dataflow(streaming), BigQuery&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Data processing&lt;/em&gt;&lt;br&gt;
+SQL, pandas, spark(python), feature-tool(python)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;MLModel&lt;/em&gt;&lt;br&gt;
+scikit-learn, xg-boost, AutoML, BigQueryML, Spark(MLlib)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Business&lt;/em&gt;
+Manager, MRD, PRD, Resourceful, SEO, GDN, KPI, OKR&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;philosophy&#34;&gt;Philosophy&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://qiita.com/riita10069/items/26a8583f270c1807bd8c&#34;&gt;プログラミングを始めた時のこと&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://qiita.com/riita10069/items/065ee0b5e32fdc10b22c&#34;&gt;成果を出すために取り組んでいること&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
