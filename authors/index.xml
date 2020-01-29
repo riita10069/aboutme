@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors | Riita</title>
-    <link>https://riita10069.github.io/portfolio/authors/</link>
-      <atom:link href="https://riita10069.github.io/portfolio/authors/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://riita10069.github.io/aboutme/authors/</link>
+      <atom:link href="https://riita10069.github.io/aboutme/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
-      <link>https://riita10069.github.io/portfolio/authors/</link>
+      <link>https://riita10069.github.io/aboutme/authors/</link>
     </image>
     
     <item>
       <title></title>
-      <link>https://riita10069.github.io/portfolio/authors/admin/</link>
+      <link>https://riita10069.github.io/aboutme/authors/admin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://riita10069.github.io/portfolio/authors/admin/</guid>
+      <guid>https://riita10069.github.io/aboutme/authors/admin/</guid>
       <description>&lt;p&gt;東工大情報通信系2年。株式会社エブリーでReactとgolangを用いた開発と、新規事業MAMADAYSのメディア事業の立ち上げを担当した。株式会社JourneyではBIチームの責任者としてMLOpsとDWH構築、KPIダッシュボードの作成など。株式会社エウレカにて、SREチームとしてGitOpsと呼ばれるようなCI/CDパイプラインの作成などに貢献。
 ビジネスと開発の双方からのアプローチで問題解決をしていけるような人材へと成長したい。&lt;/p&gt;
 &lt;p&gt;Riita is a second-year student of Tokyo Institute of Technology.&lt;br&gt;
