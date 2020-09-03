@@ -674,7 +674,6 @@
 株式会社エブリーでReactとgolangを用いた開発と、新規事業MAMADAYSのメディア事業の立ち上げを担当した。株式会社Journeyでは分析チームを立ち上げ、MLモデル、MLOpsとDWH構築。またKPIダッシュボードの作成と企画立案分析など。<br>
 株式会社TechDesignでは経営メンバー(CTO)として、2020年2月にジョイン。<br>
 今の価値観を取り壊し、これからの常識に変えていく。<br>
-これまで誰も解決することができなかった課題を解決する。<br>
 そして、ITを用いて世界中の人々の暮らしを豊かにする。</p>
 <p>Ryota is a third-student of Tokyo Institute of Technology and major in computer science.<br>
 I like Computer Science and Business Intelligence.<br>
@@ -688,11 +687,11 @@ I have the following skills.</p>
 <h3 id="skills">Skills</h3>
 <ul>
 <li><em>Web</em><br>
-React, golang(echo, beego), Ruby(Rails)</li>
+React, golang(echo), Ruby(Rails)</li>
 <li><em>Infra</em><br>
 GCE(Ansible), GKE(Knative, Istio, kustomize), CloudRun, nginx(sidecar), micro service</li>
 <li><em>Database</em><br>
-MySQL(Cloud SQL, spanner), Datastore, BigQuery</li>
+MySQL, BigQuery, Redis, Datastore</li>
 <li><em>DevOps</em><br>
 circleCI, cloud build, Terraform, Ansible</li>
 <li><em>MLOps</em><br>
@@ -1008,7 +1007,7 @@ Manager, MRD, PRD, Resourceful, SEO, GDN, KPI, OKR</li>
   <div class="col-12 col-sm-4">
     <div class="featurette-icon"><i class="fas fa-terminal"></i></div>
     <h3>Programming</h3>
-    <p>サーバー開発は、golangのechoを用いた、ドメイン駆動設計が好きです。フロントはReact(next)がちょっとできます。Railsも少しできるような気がします。</p>
+    <p>Go言語がすきです。WebAPI開発では、マイクロサービスアーキテクチャとクリーンアーキテクチャの思想に乗っかることで、flexibleかつscalableな設計を目指しています。また、メルカリで静的解析の楽しさを教わったので、Goの抽象構文木や静的単一代入のパッケージを用いた言語処理系にハマっています。「summer-triangle」というインメモリな全文検索エンジンのライブラリを作成した背景と、API開発の経験から、様々な手法による大量データや大量リクエストに対する対応も得意分野です。ジョブキューをディスパッチする形やバッファリングをを用いたり、局所性を生かしたキャッシュ戦略もとります。</p>
   </div>
   
   
@@ -1019,7 +1018,7 @@ Manager, MRD, PRD, Resourceful, SEO, GDN, KPI, OKR</li>
   <div class="col-12 col-sm-4">
     <div class="featurette-icon"><i class="fas fa-database"></i></div>
     <h3>DataBase</h3>
-    <p>MySQLはもちろん使えます。NoSQLはGCPのDatastoreしか使ったことないです。検索体験の向上のためにElasticSearchは導入をしたことがあります。QueryUnderStandingは非常に興味を持っている分野です。</p>
+    <p>MySQLを使っています。スローログの改善として、必要であればインデックスを貼ります。ただし、B+TreeがRAMを使うので、キャッシュを圧迫することにもなります。なので、計測しながら徐々にチューニングしていきます。swapには大きな時間的コストがかかるので、キャッシュにデータが乗り切るような設計があればそのほうがいい場合もあります。クエリごとの挙動にも注目してチューニングできるようになっていきたいと思っています。</p>
   </div>
   
   
@@ -1030,7 +1029,7 @@ Manager, MRD, PRD, Resourceful, SEO, GDN, KPI, OKR</li>
   <div class="col-12 col-sm-4">
     <div class="featurette-icon"><i class="fas fa-cloud"></i></div>
     <h3>Cloud Services</h3>
-    <p>GCPが基本です。KubernetesやIstio, Knativeなどを用いたマイクロサービスに非常に興味を持っています。その他分析やMLもGCPを利用したアーキテクチャを組めます。</p>
+    <p>GCPもAWSもどちらも使えます。GitOpsによるCI/CDパイプラインの構築、QA環境の構築はTerraform Cloud Build CircleCIなどのツールを使って行っています。データエンジニアの経験もあるので、DataOpsの分野にも非常に関心があって、データ基盤の３分類をBigQueryとcloud composerで実現しました。ペルソナや必要なクエリは変化するので、それに対して大量のKPIを正確に取得するためには、データモデリングが重要だと考えています。MLOpsでは、Kubernetesやlambdaで疎結合なサービスを設計していくような設計をしています。</p>
   </div>
   
   
@@ -1040,10 +1039,8 @@ Manager, MRD, PRD, Resourceful, SEO, GDN, KPI, OKR</li>
   
   <div class="col-12 col-sm-4">
     <div class="featurette-icon"><i class="fab fa-docker"></i></div>
-    <h3>Others</h3>
-    <p>Infrastructure as codeでは、AnsibleとTerraformを使います。
-PySparkやBigQueryを使った分析もできます。基本考えるのが好きなのでペルソナ設計したり、市場分析したり分析側の仕事もやってきています。
-メディアの立ち上げではSEO、CMS、キーワード選定を担当していました。</p>
+    <h3>Container</h3>
+    <p>GKE上にWebサービスを構成した経験があります。サービスメッシュにはIstioを使いました。Container runtimeやサービスメッシュに興味があって、勉強しています。最近は、gVisorにも関心があります。時間がある時に、k8sのruntimeに関してまとめた記事を書こうと思っています。</p>
   </div>
   
 </div>
