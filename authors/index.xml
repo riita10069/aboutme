@@ -5,7 +5,7 @@
     <link>https://riita10069.github.io/aboutme/authors/</link>
       <atom:link href="https://riita10069.github.io/aboutme/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Mon, 17 Aug 2020 18:39:21 +0900</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
@@ -15,7 +15,7 @@
     <item>
       <title></title>
       <link>https://riita10069.github.io/aboutme/authors/admin/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 17 Aug 2020 18:39:21 +0900</pubDate>
       <guid>https://riita10069.github.io/aboutme/authors/admin/</guid>
       <description>&lt;p&gt;東工大情報通信系B3&lt;br&gt;
 株式会社エブリーでReactとgolangを用いた開発と、新規事業MAMADAYSのメディア事業の立ち上げを担当した。株式会社Journeyでは分析チームを立ち上げ、MLモデル、MLOpsとDWH構築。またKPIダッシュボードの作成と企画立案分析など。&lt;br&gt;
