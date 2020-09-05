@@ -28,9 +28,14 @@
   
     
   
-  <meta name="description" content="version: 2 start_workflow: triggers: - schedule: cron: &ldquo;45 23 * * *&rdquo; filters: branches: only: - master jobs: - create - deploy: requires: - create filters: branches: only: master end_workflow: triggers: - schedule: cron: &ldquo;30 0 * * *&rdquo; filters: branches: only: - master jobs: - destroy ```
-MLOps (hinano) 不正かどうかの確率を計算して返すAPIはhinanoと読んでいます。 GCSからモデルのpickleファイルを取ってきて、APIコールで特徴量をもらってそれを計算して返すって感じです。
-def load_model(): project_name = &quot;minute-journey&quot; storage_client = storage.Client(project_name) bucket_name = &#39;hinano&#39; bucket = storage_client.get_bucket(bucket_name) #アップロードしたファイルをダウンロード blob_download = bucket.get_blob(&#39;xgb_reservation_model.pickle&#39;) loaded_model = pickle.">
+  <meta name="description" content="はじめに みなさんこんにちは。りいたです。 自分のブログ初の技術的な記事の投稿なので、それに相応しいような僕が初めて自力でやったプロジェクトについてお話しします。 ちなみに特に最強でもなんでもないので、ご容赦ください。 DWHを作っている他の会社さんの参考になったり、データ分析をしているけれど、DataOps的な考え方をこれから導入しようと考えている人の参考になればいいなと思って書いています。 プログラミング素人の大学生のいってることなので、間違ってることたくさんあると思うので、Qiitaの方で指摘していただけたらありがたいです。
+ちょうど一年前くらいです。大学2年の4月から、株式会社Journeyという会社でデータサイエンティストを務めています。
+プレシリーズAくらいの小さな会社なのですが、この会社がやっているミニッツというサービスは、後払いの旅行サイトです。 後払いという特徴を持っているために、支払いが正しく済まされないお客さんがあとを立たないという課題を抱えていました。 そこで、機械学習を用いた不正検知を実装して、回収率を上げていくというプロジェクトの責任者として、この会社にジョインすることになりました。 そこで、当然必要になってくるのが、DataPlatformです。 と言っても、この会社に入った頃の僕はプログラミング初めて4ヶ月くらいだった上にデータを扱った経験が一切なかったために、何もわからず、調べたり、社内のエンジニアに教えてもらいながら進めていったので、道はすごく険しかったです笑
+前提 データ基盤の３分類 &#43; 1    分類 役割 主なツール     DataLake 行動ログやDBのデータを分析用にとりあえず置いておくところ。データソース（水源）から流れてきたデータをそのまま蓄える場所なのでレイク（湖） BigQuery, BigTable   DataWareHouse 事業のドメインに従って、再集計、加工したもの。基本的にはドメインにつながりのあるテーブルをjoinしたり、時差の修正をしたり。意味のあるものである必要はない。分析しやすいことが大事 BigQuery, Dataproc   DataMart SQLやPythonになれていないBiz向けにデータを加工・整理したものですね。完成品を取り揃えていることからマート（市場）と呼ぶらしいです。ここでは、GUIで必要なデータが取り出せることが重要事項と考えています。 BigQuery, metabase, dataprep   FeatureTable 機械学習の特徴量はここに追加していきます。BigQueryMLやAutoMLへの活用もしやすく、jupyterでのデータ加工も楽になります。 BigQuery, csv, bigtable    今後この4つの単語が出てくるので、役割を一旦抑えてください。 実際は、FeatureTableを除いた三つの分け方を、データ基盤の３分類と呼ぶことが多いと思います。 いわゆるDataOpsという界隈では、ゆずたそさんの提唱する進化的データモデリングはすごく有名だと思います。 https://www.amazon.co.jp/exec/obidos/ASIN/B087R6P8NZ/yuzutas0-22/ データサイエンティストや機械学習エンジニアのかたは、こちらの書籍は1度目を通して置いてもいいと思います。
+そもそもData Lakeがなかった この会社には、機械学習のモデルを作ってくれと言われて入ったのですが、現状はAIどころの騒ぎではなかったです。 MySQLに入っているデータはともかく、行動ログなんてそもそも残っていなかったんです笑
+なので、まずは、DataLakeを作るところから始める必要があります。
+DataLakeを作る プロダクトそのものは、AWSのEC2で動いていたので、
+ Amazon Glue Amazon EMR Amazon Athena Amazon RedShift  など、データレイクのためのプロダクトはAWSにも十分揃っていると思います。">
 
   
   <link rel="alternate" hreflang="en-us" href="https://riita10069.github.io/aboutme/post/data-ops/">
@@ -233,9 +238,14 @@ def load_model(): project_name = &quot;minute-journey&quot; storage_client = sto
   <meta property="og:site_name" content="Riita">
   <meta property="og:url" content="https://riita10069.github.io/aboutme/post/data-ops/">
   <meta property="og:title" content="【DataOps】大学2年生の時に作った最強のDataPlatform | Riita">
-  <meta property="og:description" content="version: 2 start_workflow: triggers: - schedule: cron: &ldquo;45 23 * * *&rdquo; filters: branches: only: - master jobs: - create - deploy: requires: - create filters: branches: only: master end_workflow: triggers: - schedule: cron: &ldquo;30 0 * * *&rdquo; filters: branches: only: - master jobs: - destroy ```
-MLOps (hinano) 不正かどうかの確率を計算して返すAPIはhinanoと読んでいます。 GCSからモデルのpickleファイルを取ってきて、APIコールで特徴量をもらってそれを計算して返すって感じです。
-def load_model(): project_name = &quot;minute-journey&quot; storage_client = storage.Client(project_name) bucket_name = &#39;hinano&#39; bucket = storage_client.get_bucket(bucket_name) #アップロードしたファイルをダウンロード blob_download = bucket.get_blob(&#39;xgb_reservation_model.pickle&#39;) loaded_model = pickle."><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
+  <meta property="og:description" content="はじめに みなさんこんにちは。りいたです。 自分のブログ初の技術的な記事の投稿なので、それに相応しいような僕が初めて自力でやったプロジェクトについてお話しします。 ちなみに特に最強でもなんでもないので、ご容赦ください。 DWHを作っている他の会社さんの参考になったり、データ分析をしているけれど、DataOps的な考え方をこれから導入しようと考えている人の参考になればいいなと思って書いています。 プログラミング素人の大学生のいってることなので、間違ってることたくさんあると思うので、Qiitaの方で指摘していただけたらありがたいです。
+ちょうど一年前くらいです。大学2年の4月から、株式会社Journeyという会社でデータサイエンティストを務めています。
+プレシリーズAくらいの小さな会社なのですが、この会社がやっているミニッツというサービスは、後払いの旅行サイトです。 後払いという特徴を持っているために、支払いが正しく済まされないお客さんがあとを立たないという課題を抱えていました。 そこで、機械学習を用いた不正検知を実装して、回収率を上げていくというプロジェクトの責任者として、この会社にジョインすることになりました。 そこで、当然必要になってくるのが、DataPlatformです。 と言っても、この会社に入った頃の僕はプログラミング初めて4ヶ月くらいだった上にデータを扱った経験が一切なかったために、何もわからず、調べたり、社内のエンジニアに教えてもらいながら進めていったので、道はすごく険しかったです笑
+前提 データ基盤の３分類 &#43; 1    分類 役割 主なツール     DataLake 行動ログやDBのデータを分析用にとりあえず置いておくところ。データソース（水源）から流れてきたデータをそのまま蓄える場所なのでレイク（湖） BigQuery, BigTable   DataWareHouse 事業のドメインに従って、再集計、加工したもの。基本的にはドメインにつながりのあるテーブルをjoinしたり、時差の修正をしたり。意味のあるものである必要はない。分析しやすいことが大事 BigQuery, Dataproc   DataMart SQLやPythonになれていないBiz向けにデータを加工・整理したものですね。完成品を取り揃えていることからマート（市場）と呼ぶらしいです。ここでは、GUIで必要なデータが取り出せることが重要事項と考えています。 BigQuery, metabase, dataprep   FeatureTable 機械学習の特徴量はここに追加していきます。BigQueryMLやAutoMLへの活用もしやすく、jupyterでのデータ加工も楽になります。 BigQuery, csv, bigtable    今後この4つの単語が出てくるので、役割を一旦抑えてください。 実際は、FeatureTableを除いた三つの分け方を、データ基盤の３分類と呼ぶことが多いと思います。 いわゆるDataOpsという界隈では、ゆずたそさんの提唱する進化的データモデリングはすごく有名だと思います。 https://www.amazon.co.jp/exec/obidos/ASIN/B087R6P8NZ/yuzutas0-22/ データサイエンティストや機械学習エンジニアのかたは、こちらの書籍は1度目を通して置いてもいいと思います。
+そもそもData Lakeがなかった この会社には、機械学習のモデルを作ってくれと言われて入ったのですが、現状はAIどころの騒ぎではなかったです。 MySQLに入っているデータはともかく、行動ログなんてそもそも残っていなかったんです笑
+なので、まずは、DataLakeを作るところから始める必要があります。
+DataLakeを作る プロダクトそのものは、AWSのEC2で動いていたので、
+ Amazon Glue Amazon EMR Amazon Athena Amazon RedShift  など、データレイクのためのプロダクトはAWSにも十分揃っていると思います。"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
   <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
   
     
@@ -287,7 +297,7 @@ def load_model(): project_name = &quot;minute-journey&quot; storage_client = sto
       "url": "img/https://riita10069.github.io/aboutme/"
     }
   },
-  "description": "version: 2 start_workflow: triggers: - schedule: cron: \u0026ldquo;45 23 * * *\u0026rdquo; filters: branches: only: - master jobs: - create - deploy: requires: - create filters: branches: only: master end_workflow: triggers: - schedule: cron: \u0026ldquo;30 0 * * *\u0026rdquo; filters: branches: only: - master jobs: - destroy ```\nMLOps (hinano) 不正かどうかの確率を計算して返すAPIはhinanoと読んでいます。 GCSからモデルのpickleファイルを取ってきて、APIコールで特徴量をもらってそれを計算して返すって感じです。\ndef load_model(): project_name = \u0026quot;minute-journey\u0026quot; storage_client = storage.Client(project_name) bucket_name = 'hinano' bucket = storage_client.get_bucket(bucket_name) #アップロードしたファイルをダウンロード blob_download = bucket.get_blob('xgb_reservation_model.pickle') loaded_model = pickle."
+  "description": "はじめに みなさんこんにちは。りいたです。 自分のブログ初の技術的な記事の投稿なので、それに相応しいような僕が初めて自力でやったプロジェクトについてお話しします。 ちなみに特に最強でもなんでもないので、ご容赦ください。 DWHを作っている他の会社さんの参考になったり、データ分析をしているけれど、DataOps的な考え方をこれから導入しようと考えている人の参考になればいいなと思って書いています。 プログラミング素人の大学生のいってることなので、間違ってることたくさんあると思うので、Qiitaの方で指摘していただけたらありがたいです。\nちょうど一年前くらいです。大学2年の4月から、株式会社Journeyという会社でデータサイエンティストを務めています。\nプレシリーズAくらいの小さな会社なのですが、この会社がやっているミニッツというサービスは、後払いの旅行サイトです。 後払いという特徴を持っているために、支払いが正しく済まされないお客さんがあとを立たないという課題を抱えていました。 そこで、機械学習を用いた不正検知を実装して、回収率を上げていくというプロジェクトの責任者として、この会社にジョインすることになりました。 そこで、当然必要になってくるのが、DataPlatformです。 と言っても、この会社に入った頃の僕はプログラミング初めて4ヶ月くらいだった上にデータを扱った経験が一切なかったために、何もわからず、調べたり、社内のエンジニアに教えてもらいながら進めていったので、道はすごく険しかったです笑\n前提 データ基盤の３分類 + 1    分類 役割 主なツール     DataLake 行動ログやDBのデータを分析用にとりあえず置いておくところ。データソース（水源）から流れてきたデータをそのまま蓄える場所なのでレイク（湖） BigQuery, BigTable   DataWareHouse 事業のドメインに従って、再集計、加工したもの。基本的にはドメインにつながりのあるテーブルをjoinしたり、時差の修正をしたり。意味のあるものである必要はない。分析しやすいことが大事 BigQuery, Dataproc   DataMart SQLやPythonになれていないBiz向けにデータを加工・整理したものですね。完成品を取り揃えていることからマート（市場）と呼ぶらしいです。ここでは、GUIで必要なデータが取り出せることが重要事項と考えています。 BigQuery, metabase, dataprep   FeatureTable 機械学習の特徴量はここに追加していきます。BigQueryMLやAutoMLへの活用もしやすく、jupyterでのデータ加工も楽になります。 BigQuery, csv, bigtable    今後この4つの単語が出てくるので、役割を一旦抑えてください。 実際は、FeatureTableを除いた三つの分け方を、データ基盤の３分類と呼ぶことが多いと思います。 いわゆるDataOpsという界隈では、ゆずたそさんの提唱する進化的データモデリングはすごく有名だと思います。 https://www.amazon.co.jp/exec/obidos/ASIN/B087R6P8NZ/yuzutas0-22/ データサイエンティストや機械学習エンジニアのかたは、こちらの書籍は1度目を通して置いてもいいと思います。\nそもそもData Lakeがなかった この会社には、機械学習のモデルを作ってくれと言われて入ったのですが、現状はAIどころの騒ぎではなかったです。 MySQLに入っているデータはともかく、行動ログなんてそもそも残っていなかったんです笑\nなので、まずは、DataLakeを作るところから始める必要があります。\nDataLakeを作る プロダクトそのものは、AWSのEC2で動いていたので、\n Amazon Glue Amazon EMR Amazon Athena Amazon RedShift  など、データレイクのためのプロダクトはAWSにも十分揃っていると思います。"
 }
 </script>
 
@@ -600,7 +610,7 @@ def load_model(): project_name = &quot;minute-journey&quot; storage_client = sto
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    4 min read
   </span>
   
 
@@ -609,6 +619,10 @@ def load_model(): project_name = &quot;minute-journey&quot; storage_client = sto
   
 
   
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="">データ基盤</a></span>
   
 
 </div>
@@ -636,84 +650,442 @@ def load_model(): project_name = &quot;minute-journey&quot; storage_client = sto
   <div class="article-container">
 
     <div class="article-style">
-      <p>version: 2
-start_workflow:
-triggers:
-- schedule:
-cron: &ldquo;45 23 * * *&rdquo;
-filters:
-branches:
-only:
-- master
+      <h2 id="はじめに">はじめに</h2>
+<p>みなさんこんにちは。りいたです。
+自分のブログ初の技術的な記事の投稿なので、それに相応しいような僕が初めて自力でやったプロジェクトについてお話しします。
+ちなみに特に最強でもなんでもないので、ご容赦ください。
+DWHを作っている他の会社さんの参考になったり、データ分析をしているけれど、DataOps的な考え方をこれから導入しようと考えている人の参考になればいいなと思って書いています。
+プログラミング素人の大学生のいってることなので、間違ってることたくさんあると思うので、<a href="https://qiita.com/riita10069/items/3aece59f0506a5995f2a">Qiita</a>の方で指摘していただけたらありがたいです。</p>
+<p>ちょうど一年前くらいです。大学2年の4月から、<a href="https://minute.jp/pages/corp">株式会社Journey</a>という会社でデータサイエンティストを務めています。</p>
+<p>プレシリーズAくらいの小さな会社なのですが、この会社がやっている<a href="https://minute.jp">ミニッツ</a>というサービスは、後払いの旅行サイトです。
+後払いという特徴を持っているために、支払いが正しく済まされないお客さんがあとを立たないという課題を抱えていました。
+そこで、機械学習を用いた不正検知を実装して、回収率を上げていくというプロジェクトの責任者として、この会社にジョインすることになりました。
+そこで、当然必要になってくるのが、DataPlatformです。
+と言っても、この会社に入った頃の僕はプログラミング初めて4ヶ月くらいだった上にデータを扱った経験が一切なかったために、何もわからず、調べたり、社内のエンジニアに教えてもらいながら進めていったので、道はすごく険しかったです笑</p>
+<h2 id="前提">前提</h2>
+<h3 id="データ基盤の３分類--1">データ基盤の３分類 + 1</h3>
+<table>
+<thead>
+<tr>
+<th>分類</th>
+<th>役割</th>
+<th>主なツール</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DataLake</td>
+<td>行動ログやDBのデータを分析用にとりあえず置いておくところ。データソース（水源）から流れてきたデータをそのまま蓄える場所なのでレイク（湖）</td>
+<td>BigQuery, BigTable</td>
+</tr>
+<tr>
+<td>DataWareHouse</td>
+<td>事業のドメインに従って、再集計、加工したもの。基本的にはドメインにつながりのあるテーブルをjoinしたり、時差の修正をしたり。意味のあるものである必要はない。分析しやすいことが大事</td>
+<td>BigQuery, Dataproc</td>
+</tr>
+<tr>
+<td>DataMart</td>
+<td>SQLやPythonになれていないBiz向けにデータを加工・整理したものですね。完成品を取り揃えていることからマート（市場）と呼ぶらしいです。ここでは、GUIで必要なデータが取り出せることが重要事項と考えています。</td>
+<td>BigQuery, metabase, dataprep</td>
+</tr>
+<tr>
+<td>FeatureTable</td>
+<td>機械学習の特徴量はここに追加していきます。BigQueryMLやAutoMLへの活用もしやすく、jupyterでのデータ加工も楽になります。</td>
+<td>BigQuery, csv, bigtable</td>
+</tr>
+</tbody>
+</table>
+<p>今後この4つの単語が出てくるので、役割を一旦抑えてください。
+実際は、FeatureTableを除いた三つの分け方を、データ基盤の３分類と呼ぶことが多いと思います。
+いわゆるDataOpsという界隈では、<a href="https://twitter.com/yuzutas0">ゆずたそ</a>さんの提唱する進化的データモデリングはすごく有名だと思います。
+<a href="https://www.amazon.co.jp/exec/obidos/ASIN/B087R6P8NZ/yuzutas0-22/">https://www.amazon.co.jp/exec/obidos/ASIN/B087R6P8NZ/yuzutas0-22/</a>
+データサイエンティストや機械学習エンジニアのかたは、こちらの書籍は1度目を通して置いてもいいと思います。</p>
+<h3 id="そもそもdata-lakeがなかった">そもそもData Lakeがなかった</h3>
+<p>この会社には、機械学習のモデルを作ってくれと言われて入ったのですが、現状はAIどころの騒ぎではなかったです。
+MySQLに入っているデータはともかく、行動ログなんてそもそも残っていなかったんです笑</p>
+<p>なので、まずは、DataLakeを作るところから始める必要があります。</p>
+<h2 id="datalakeを作る">DataLakeを作る</h2>
+<p>プロダクトそのものは、AWSのEC2で動いていたので、</p>
+<ul>
+<li>Amazon Glue</li>
+<li>Amazon EMR</li>
+<li>Amazon Athena</li>
+<li>Amazon RedShift</li>
+</ul>
+<p>など、データレイクのためのプロダクトはAWSにも十分揃っていると思います。</p>
+<p>まぁ、結論から言うと、わざわざGCPに持っていって、BigQueryを採用しました。
+これも先に結果をいってしまうと、AthenaよりもBigQueryの方がメリットが強かったかなと思っています。</p>
+<p>BigQueryの利点は、</p>
+<ul>
+<li>安い。数十GBくらいなら無料枠でやっていける。</li>
+<li>使ってる人が多いので、文献が多い。</li>
+</ul>
+<p>SQLでの分析を前提とするならAthenaとかRedShiftよりは、BigQueryは高速なので、開発体験もいいかなと思います。
+EMRとか使うってなると、高速に動作すると思いますが、SQLって普遍的なスキルで書きやすいので、好き好んで、Spark使わなくて持ってなっていた部分もあります。</p>
+<p>当時は微妙だったのですが、今では、BigQueryMLがある程度使えるようになってきたことと、AutoMLがかなり楽にグラフの描画などを含めてやってくれることを考えると、BigQueryの外側に出る必要がどんどんなくなってきていると思っています。
+ちゃんとモデルをつくり込むときは、JupyterでPython使って書いていたので、Spark使うことあまりなかったです。(pandas-gbqでBigQuery上のFeatures Tableからデータを取ってきています。)
+DataLakeを直接食わせるわけではないので、なんとかなっていましたが、教師データがTB以上になった時にはSparkが必要になってくると思うので、その辺は、現場によってかなって思っています。</p>
+<p>BigQueryにとりあえず、入れると決めたので、設計ができました。</p>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/309507/a7a8790b-b6b3-5ab9-66ec-bf61361fec37.png" alt="image.png"></p>
+<h5 id="行動ログ">行動ログ</h5>
+<p>nginx -&gt; fluentd -&gt; stackdriver -&gt;bigquery</p>
+<h5 id="mysqlのデータ">MySQLのデータ</h5>
+<p>slaveでdumpを作成して、それをGCSにあげるバッチを作成(これをyebisと命名)
+これをBigQueryに入れる。
+このバッチはdigdagを使って1日に一回動くようにした。</p>
+<p><strong>なんでembulk使わないの？</strong>
+dumpが吐ける程度のデータ量しかなかったからです。
+embulkってGCS経由のプアグインありましたっけ？直接入れるよりその方が安いんですよね。</p>
+<p><strong>なんでcomposer使わないの？</strong>
+AWSとGCPのセキュアコネクトするのがしんどかったんですよ。
+特にAuroraにアクセスする方はシビアなので。</p>
+<h2 id="from-fluentd-to-bigquery">from fluentd to bigquery</h2>
+<p>取りたいログをaccess.logに出力するために、Loggerを作る必要があります。
+弊社はRailsを使っていたので、デフォルトのLoggerを活用したほうが賢いので、モンキーパッチをあてました。</p>
+<pre><code class="language-ruby">module Server
+  module Logger
+    class Formatter &lt; ::Logger::Formatter
+      include ActiveSupport::TaggedLogging::Formatter
+</code></pre>
+<p>Goを使っている場合がほとんどだと思いますが、Goではモンキーパッチがあてられないので、echoとかの既存のLoggerを使って、っていうのは厳しいですね。
+僕は、<code>github.com/TV4/logrus-stackdriver-formatter</code>と<code>github.com/plutov/echo-logrus</code>を使って実装したことがあります。</p>
+<pre><code class="language-go">package middleware
+type (
+	Log struct {
+		Logger *logrus.Logger
+	}
+)
+func (l *Logs)getLogs(c echo.Context, next echo.HandlerFunc) error {
+    logFields := map[string]interface{}{
+            &quot;time_rfc3339&quot;:  time.Now().Format(time.RFC3339),
+            &quot;remote_ip&quot;:     c.RealIP(),
+            &quot;host&quot;:          req.Host,
+            &quot;uri&quot;:           req.RequestURI,
+            &quot;method&quot;:        req.Method,
+            &quot;path&quot;:          p,
+            &quot;referer&quot;:       req.Referer(),
+            &quot;user_agent&quot;:    req.UserAgent(),
+            &quot;status&quot;:        res.Status,
+            &quot;latency&quot;:       strconv.FormatInt(stop.Sub(start).Nanoseconds()/1000, 10),
+            &quot;latency_human&quot;: stop.Sub(start).String(),
+            &quot;bytes_in&quot;:      bytesIn,
+            &quot;bytes_out&quot;:     strconv.FormatInt(res.Size, 10),
+            &quot;claims&quot;:        claims,
+        }
+        l.Logger.WithFields(logFields).Info()
+}
+
+</code></pre>
+<p>的な感じの実装をしました。
+<a href="https://github.com/plutov/echo-logrus/blob/master/middleware.go#L152">https://github.com/plutov/echo-logrus/blob/master/middleware.go#L152</a>
+を参照すればだいたいこんな感じかなってできました。</p>
+<h2 id="from-mysql-to-bigquery-yebis">from mysql to bigquery (yebis)</h2>
+<p>MySQLからデータ取ってきて、頑張ってCVS作って、S3に上げておいてください。
+今度はそれを取ってきて、BigQueryに上げています。</p>
+<pre><code class="language-ruby">load_job = dataset.load_job(table_id, file_path, skip_leading: 1, schema: schema)
+load_job.wait_until_done!
+</code></pre>
+<p>こんな感じの関数があるので、意外と簡単にできます。</p>
+<p>digdagが定期実行してくれます。</p>
+<pre><code class="language-yaml">timezone: Asia/Tokyo
+
+schedule:
+  daily&gt;: 04:00:00
+  
+_export:
+  slack_webhook_url: https://hooks.slack.com/services/********
+  slack_webhook_channel: &quot;#general&quot; 
+
++setup:
+  sh&gt;: bundle install
+
++run:
+  sh&gt;: ruby main.rb
+
+</code></pre>
+<h2 id="データ基盤の３分類を始める">データ基盤の３分類を始める。</h2>
+<h3 id="解決すべき課題issue-to-be-solved">解決すべき課題（Issue to be Solved）</h3>
+<ul>
+<li>特徴量を増やすのが大変すぎる
+<ul>
+<li>地道にSQLを大量に書かないといけない</li>
+<li>書いたからといって、精度があがるとは限らない</li>
+</ul>
+</li>
+<li>データベースが汚すぎる</li>
+<li>現状、欲しいデータがいつでもすぐに管理できているとは言えない
+<ul>
+<li>依頼、レスポンスまでの時間がある程度ある</li>
+<li>一度に大量の依頼をしても返せない</li>
+<li>GUIで分析できたらそれはそれで便利では(metabase, dataprep)</li>
+</ul>
+</li>
+<li>KPIの管理がイマイチ
+<ul>
+<li>SQLを書いたはいいけど、ビジネス視点でクリティカルじゃない</li>
+<li>Dashboardは正しくルールを決めて管理するべきなのでは</li>
+</ul>
+</li>
+<li>クエリ管理ができてない
+<ul>
+<li>書いたクエリの厳密な定義がもはや記憶にない</li>
+<li>書いたクエリにどんなものがあったか覚えていない</li>
+</ul>
+</li>
+</ul>
+<p>分析というのが、アドホックな検証という役割だけでなく
+行動や属性から、ユーザーをクラスタリングし、
+それによってどのようなクラスの属性にどの施策が刺さったのかを考える
+仮説構築の手助けができるようなものを目指してく方がいい。</p>
+<p>というのが、当時のPRDに僕が書いたものです。
+簡潔に言えば、BigQueryから頑張って引っ張ってくればいいというフェーズに限界がきていたんです。</p>
+<ul>
+<li>同じようなデータセットをなんども作り直すのが大変すぎる</li>
+<li>ちょっとしたKPIの要件変更に対して、全てのクエリを修正しないといけない</li>
+</ul>
+<p>という2点です。
+批判とかではないですが、少なくとも弊社のビジネスも強くはないので、余分にKPI作りすぎというのもありました。
+見ている数字の数が多すぎるし、定義が頻繁に変わる。
+定義の変更は本当に厄介で、200ものクエリを全部読んで、またちょこっと変更なんてことをしないといけなかったので、DataWareHouseにKPIに関わるような重要な定義は外だしにしてあげて、DataMart側はFROM句でそこを参照するような形にしておかないとやってられないというのは強くありました。
+後々課題をあげますが、こういった課題を、実感していないとDataOpsは厳しいと思います。なので、普段からそのデータセットでSQLを書いているデータ分析者でないSREの人とかがComposer導入できるからといって、データ基盤まで導入しても形骸化してしまうと思います。
+実際この中間テーブルの考え方は、200行のクエリを30行にするくらいの威力のあるものでしたので、正しく運用できれば、価値のあるものになると思います。
+また、KPI定義の変更に対しても非常に強いです。DWHを変えれば自然にDataMartも変わりますので。</p>
+<h3 id="先に設計どーん">先に設計どーん</h3>
+<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/309507/e9db7223-deb7-953e-0946-4b891136d448.png" alt="image.png"></p>
+<h3 id="cloud-composer-bluemoon">Cloud Composer (bluemoon)</h3>
+<p>Airflowのマネージドサービスですが、BigQuery Operatorが用意されていて、データ基盤の３分類やるならこの組み合わせが一番楽なような気がします。</p>
+<p>TerraformでCloud Composerを立てています。
+というのも、composerって1日1回しか動かないのに、ずっと起きてるとお金もったいので、朝以外は落としています。
+その時にTerraformだと管理しやすかったので、Terraformを使っています。</p>
+<pre><code class="language-terraform">
+terraform {
+  backend &quot;gcs&quot; {
+    bucket      = &quot;bluemoon-tf-state&quot;
+    path        = &quot;composer.tfstate&quot;
+    credentials = &quot;account.json&quot;
+  }
+}
+
+provider &quot;google&quot; {
+  credentials = file(&quot;account.json&quot;)
+  project     = &quot;minute-journey&quot;
+  region      = &quot;asia-northeast1&quot;
+}
+
+resource &quot;google_composer_environment&quot; &quot;composer-environment&quot; {
+  name    = &quot;cloud-composer&quot;
+  project = &quot;minute-journey&quot;
+  region = &quot;us-central1&quot;  # 当時はdataprocとかdataflowがasia対応してなかったので
+  config {
+    node_count = 3
+
+    node_config {
+      zone         = &quot;us-central1-a&quot;
+      machine_type = &quot;n1-standard-1&quot;
+      disk_size_gb = 20
+    }
+    software_config {
+      airflow_config_overrides = {
+        core-dag_concurrency = 20
+      }
+    }
+  }
+}
+
+</code></pre>
+<h3 id="ディレクトリ構成">ディレクトリ構成</h3>
+<pre><code>.
+├── tf...
+├── data_source_a.py
+├── data_source_b.py
+└── data_source_c.py
+└── sql
+ ├── data_source_a.sql
+ ├── data_source_b.sql
+ └── data_source_c.sql
+</code></pre>
+<pre><code class="language-python:data_source_a.py">import datetime
+import codecs
+from airflow import models
+from airflow.contrib.operators import bigquery_operator
+from airflow.operators import bash_operator
+
+
+with codecs.open('/home/airflow/gcs/plugins/sql/data_source_a.sql', 'r', 'utf-8') as f:
+ query = f.read()
+
+DAG_NAME = 'base_query'
+
+default_dag_args = {
+    'start_date': datetime.datetime(2018, 1, 1),
+    'email_on_failure': False,
+    'email_on_retry': False,
+    'retries': 1,
+    'retry_delay': datetime.timedelta(minutes=10),
+    'project_id': &quot;minute-journey&quot;
+}
+
+with models.DAG(
+ dag_id=DAG_NAME,
+ schedule_interval=&quot;@daily&quot;,
+ default_args=default_dag_args) as dag:
+
+  start = bash_operator.BashOperator(
+    task_id='start',
+    bash_command='echo Start Workflow'
+  )
+ 
+  bq_to_bq = bigquery_operator.BigQueryOperator(
+    task_id='query',
+     write_disposition='WRITE_TRUNCATE',
+     create_disposition='CREATE_IF_NEEDED',
+     allow_large_results=True,
+     sql=query,
+     use_legacy_sql=False,
+     destination_dataset_table='minute-journey.data_ware_house.data_source_a'
+  )
+
+
+  start &gt;&gt; bq_to_bq
+</code></pre>
+<h3 id="実行方法">実行方法</h3>
+<pre><code>gcloud composer environments storage dags import --location us-central1 --environment cloud-composer  --source base_query.py
+gcloud composer environments storage plugins  import --location us-central1 --environment cloud-composer  --source sql/
+</code></pre>
+<h3 id="定期実行">定期実行</h3>
+<p>先ほども言いましたが、ずっと立ってると3台分時間課金されて勿体無いので、朝以外は落ちてるようにしています。
+CircleCIのcron使って、午前8:45に<code>terraform apply</code>して、9:30に<code>terraform destroy</code>しています。
+キューイングとかもできるような感じはありますが、キューイングされる先にお金かかるような気がして、やってないです。</p>
+<p>まぁ、やるとしたらCloud runにTerraform環境んで、composerのbash operatorでそれ叩くかなぁって感じですが、今の所30分はかからないってわかってるので、まぁいいかなってなっています笑</p>
+<p>データ量が増えてきてできなくなったら手作業で10:00にしておけばいいかなと。。。w
+この規模の会社だとデータ基盤なんて1日古くても大した問題ではないので。</p>
+<pre><code class="language-yaml:bluemoon/.circleci/config.yml">version: 2
 jobs:
-- create
-- deploy:
-requires:
-- create
-filters:
-branches:
-only: master
-end_workflow:
-triggers:
-- schedule:
-cron: &ldquo;30 0 * * *&rdquo;
-filters:
-branches:
-only:
-- master
-jobs:
-- destroy
-```</p>
+  create:
+    working_directory: ~/bluemoon
+    docker:
+      - image: hashicorp/terraform:light
+    steps:
+      - checkout
+      - run:
+          name: Slack notification
+          command: sh start_slack.sh
+          working_directory: .
+      - run:
+          name: Init terraform
+          command: terraform init
+          working_directory: tf/cloud-composer
+      - run:
+          name: Apply terraform
+          command: terraform apply -auto-approve 
+          working_directory: tf/cloud-composer
+
+  destroy:
+    working_directory: ~/bluemoon
+    docker:
+      - image: hashicorp/terraform:light
+    steps:
+      - checkout
+      - run:
+          name: Slack notification
+          command: sh end_slack.sh
+          working_directory: .
+      - run:
+          name: Init terraform
+          command: terraform init
+          working_directory: tf/cloud-composer
+
+      - run:
+          name: Destroy terraform
+          command: terraform destroy -auto-approve
+          working_directory: tf/cloud-composer
+
+  deploy:
+    working_directory: ~/bluemoon
+    docker:
+      - image: google/cloud-sdk
+    steps:
+      - checkout
+      - run:
+          name: initialize gcloud
+          command: |
+            gcloud auth activate-service-account --key-file=tf/cloud-composer/account.json
+            gcloud --quiet config set project minute-journey
+      - run:
+          name: import sql files 
+          command: gcloud composer environments storage plugins  import --location us-central1 --environment cloud-composer  --source sql/
+      - run:
+          name: import dag files 
+          command: gcloud composer environments storage dags import --location us-central1 --environment cloud-composer  --source base_query.py
+
+workflows:
+  version: 2
+  start_workflow:
+    triggers:
+      - schedule:
+          cron: &quot;45 23 * * *&quot;
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - create
+      - deploy:
+          requires:
+            - create
+          filters:
+            branches:
+              only: master
+  end_workflow:
+    triggers:
+      - schedule:
+          cron: &quot;30 0 * * *&quot;
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - destroy
+</code></pre>
 <h3 id="mlops-hinano">MLOps (hinano)</h3>
 <p>不正かどうかの確率を計算して返すAPIはhinanoと読んでいます。
 GCSからモデルのpickleファイルを取ってきて、APIコールで特徴量をもらってそれを計算して返すって感じです。</p>
 <pre><code class="language-python">def load_model():
     project_name = &quot;minute-journey&quot;
-        storage_client = storage.Client(project_name)
+    storage_client = storage.Client(project_name)
 
     bucket_name = 'hinano'
-        bucket = storage_client.get_bucket(bucket_name)
+    bucket = storage_client.get_bucket(bucket_name)
 
     #アップロードしたファイルをダウンロード
-        blob_download = bucket.get_blob('xgb_reservation_model.pickle')
-	    loaded_model = pickle.loads(blob_download.download_as_string())
-	        return loaded_model
+    blob_download = bucket.get_blob('xgb_reservation_model.pickle')
+    loaded_model = pickle.loads(blob_download.download_as_string())
+    return loaded_model
 
 def score_predict(clf, reservation_log):
     y_pred_proba = clf.predict_proba(reservation_log)
-        y_pred = clf.predict(reservation_log)
-	    return y_pred[0], y_pred_proba[0][0]
-	    ```
-
-APIにはFlask使っています。
+    y_pred = clf.predict(reservation_log)
+    return y_pred[0], y_pred_proba[0][0]
+</code></pre>
+<p>APIにはFlask使っています。
 結構作るの時間かかりましたが、正直大したことはやっていないです。
-Service層にあるのがこれくらいなので、この辺参考にすれば簡単にできるはずです。
-
-
-## DWHの運用で出てきた問題点
-
-### DataLakeからDataMartを直接作ることを厳しく禁止しすぎた。
-DataWareHouseが肥大化しすぎてドキュメント管理がしんどくなってきた。
+Service層にあるのがこれくらいなので、この辺参考にすれば簡単にできるはずです。</p>
+<h2 id="dwhの運用で出てきた問題点">DWHの運用で出てきた問題点</h2>
+<h3 id="datalakeからdatamartを直接作ることを厳しく禁止しすぎた">DataLakeからDataMartを直接作ることを厳しく禁止しすぎた。</h3>
+<p>DataWareHouseが肥大化しすぎてドキュメント管理がしんどくなってきた。
 同じようなDataWareHouseができてきて、結局最初の課題に戻ってしまう。
 データモデリングに関しては、他の分野ほど知見が溜まっていないのもあって、ある程度リファクタリング前提で考えていいと思っています。
 というのも、Atomic DesignやDDDのような強力な型があれば乗っかってもいいですが、現状この分野にはそれがないと思うので、
 頻繁にジョインするテーブルがわかったらそれをくっつけて、サブクエリを全て置き換えるというような運用をしてもいいと思います。
-僕らの運用だと1Lake1Houseが多すぎたので、それは本質的ではないと思います。
-
-
-### 謎のDWH
-データの定義って難しいですよね。
+僕らの運用だと1Lake1Houseが多すぎたので、それは本質的ではないと思います。</p>
+<h3 id="謎のdwh">謎のDWH</h3>
+<p>データの定義って難しいですよね。
 それってuniqueなの？こういうパターンは別で数えるの？それって本質なの？週別なの？土曜から日曜にかけて宿泊した人はどっち扱いなの？
 定義しなきゃいけないことって思っていることの何倍も多いです。
 そういう曖昧な定義を許していると、なんとなく書いたクエリがそうだったからでDWHに曖昧の負債が溜まっていきます。
-本質的なプロダクトの改善に役立てることを考えるなら、データの定義を厳密にすることが重要だと思います。厳密な定義のデータが欲しくなるくらいには、そもそも仮説が練りこまれていないと分析する価値がないとも言えますし、データの定義を考えることは有意義だと思います。
-
-僕は、ディメンショナルモデリング的な考え方にはあまり共感していないというか、そこまでの規模のプロダクトではなかったのかもしれないですが、データの定義に関しては、厳密なものを作り込んでおく必要があるので、ある程度、ファクトとディメンションを分離して、スタースキーマを作成したりすることで、精査されるかもしれません。
-ただ、重要なのはいつでも本質から外れないことです。
-
-
-
-</code></pre>
+本質的なプロダクトの改善に役立てることを考えるなら、データの定義を厳密にすることが重要だと思います。厳密な定義のデータが欲しくなるくらいには、そもそも仮説が練りこまれていないと分析する価値がないとも言えますし、データの定義を考えることは有意義だと思います。</p>
+<p>僕は、ディメンショナルモデリング的な考え方にはあまり共感していないというか、そこまでの規模のプロダクトではなかったのかもしれないですが、データの定義に関しては、厳密なものを作り込んでおく必要があるので、ある程度、ファクトとディメンションを分離して、スタースキーマを作成したりすることで、精査されるかもしれません。
+ただ、重要なのはいつでも本質から外れないことです。</p>
 
     </div>
 

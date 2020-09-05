@@ -526,9 +526,14 @@
       <h2><a href="/aboutme/post/data-ops/" >【DataOps】大学2年生の時に作った最強のDataPlatform</a></h2>
       <div class="article-style">
         
-          version: 2 start_workflow: triggers: - schedule: cron: &ldquo;45 23 * * *&rdquo; filters: branches: only: - master jobs: - create - deploy: requires: - create filters: branches: only: master end_workflow: triggers: - schedule: cron: &ldquo;30 0 * * *&rdquo; filters: branches: only: - master jobs: - destroy ```
-MLOps (hinano) 不正かどうかの確率を計算して返すAPIはhinanoと読んでいます。 GCSからモデルのpickleファイルを取ってきて、APIコールで特徴量をもらってそれを計算して返すって感じです。
-def load_model(): project_name = &quot;minute-journey&quot; storage_client = storage.Client(project_name) bucket_name = 'hinano' bucket = storage_client.get_bucket(bucket_name) #アップロードしたファイルをダウンロード blob_download = bucket.get_blob('xgb_reservation_model.pickle') loaded_model = pickle.
+          はじめに みなさんこんにちは。りいたです。 自分のブログ初の技術的な記事の投稿なので、それに相応しいような僕が初めて自力でやったプロジェクトについてお話しします。 ちなみに特に最強でもなんでもないので、ご容赦ください。 DWHを作っている他の会社さんの参考になったり、データ分析をしているけれど、DataOps的な考え方をこれから導入しようと考えている人の参考になればいいなと思って書いています。 プログラミング素人の大学生のいってることなので、間違ってることたくさんあると思うので、Qiitaの方で指摘していただけたらありがたいです。
+ちょうど一年前くらいです。大学2年の4月から、株式会社Journeyという会社でデータサイエンティストを務めています。
+プレシリーズAくらいの小さな会社なのですが、この会社がやっているミニッツというサービスは、後払いの旅行サイトです。 後払いという特徴を持っているために、支払いが正しく済まされないお客さんがあとを立たないという課題を抱えていました。 そこで、機械学習を用いた不正検知を実装して、回収率を上げていくというプロジェクトの責任者として、この会社にジョインすることになりました。 そこで、当然必要になってくるのが、DataPlatformです。 と言っても、この会社に入った頃の僕はプログラミング初めて4ヶ月くらいだった上にデータを扱った経験が一切なかったために、何もわからず、調べたり、社内のエンジニアに教えてもらいながら進めていったので、道はすごく険しかったです笑
+前提 データ基盤の３分類 + 1    分類 役割 主なツール     DataLake 行動ログやDBのデータを分析用にとりあえず置いておくところ。データソース（水源）から流れてきたデータをそのまま蓄える場所なのでレイク（湖） BigQuery, BigTable   DataWareHouse 事業のドメインに従って、再集計、加工したもの。基本的にはドメインにつながりのあるテーブルをjoinしたり、時差の修正をしたり。意味のあるものである必要はない。分析しやすいことが大事 BigQuery, Dataproc   DataMart SQLやPythonになれていないBiz向けにデータを加工・整理したものですね。完成品を取り揃えていることからマート（市場）と呼ぶらしいです。ここでは、GUIで必要なデータが取り出せることが重要事項と考えています。 BigQuery, metabase, dataprep   FeatureTable 機械学習の特徴量はここに追加していきます。BigQueryMLやAutoMLへの活用もしやすく、jupyterでのデータ加工も楽になります。 BigQuery, csv, bigtable    今後この4つの単語が出てくるので、役割を一旦抑えてください。 実際は、FeatureTableを除いた三つの分け方を、データ基盤の３分類と呼ぶことが多いと思います。 いわゆるDataOpsという界隈では、ゆずたそさんの提唱する進化的データモデリングはすごく有名だと思います。 https://www.amazon.co.jp/exec/obidos/ASIN/B087R6P8NZ/yuzutas0-22/ データサイエンティストや機械学習エンジニアのかたは、こちらの書籍は1度目を通して置いてもいいと思います。
+そもそもData Lakeがなかった この会社には、機械学習のモデルを作ってくれと言われて入ったのですが、現状はAIどころの騒ぎではなかったです。 MySQLに入っているデータはともかく、行動ログなんてそもそも残っていなかったんです笑
+なので、まずは、DataLakeを作るところから始める必要があります。
+DataLakeを作る プロダクトそのものは、AWSのEC2で動いていたので、
+ Amazon Glue Amazon EMR Amazon Athena Amazon RedShift  など、データレイクのためのプロダクトはAWSにも十分揃っていると思います。
         
       </div>
     </div>
