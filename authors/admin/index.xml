@@ -5,12 +5,98 @@
     <link>https://riita10069.github.io/aboutme/authors/admin/</link>
       <atom:link href="https://riita10069.github.io/aboutme/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     <description>Riita</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Mon, 17 Aug 2020 18:39:21 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Sun, 06 Sep 2020 03:27:38 +0900</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Riita</title>
       <link>https://riita10069.github.io/aboutme/authors/admin/</link>
     </image>
+    
+    <item>
+      <title>【DataOps】大学2年生の時に作った最強のDataPlatform</title>
+      <link>https://riita10069.github.io/aboutme/post/data-ops/</link>
+      <pubDate>Sun, 06 Sep 2020 03:27:38 +0900</pubDate>
+      <guid>https://riita10069.github.io/aboutme/post/data-ops/</guid>
+      <description>&lt;p&gt;version: 2
+start_workflow:
+triggers:
+- schedule:
+cron: &amp;ldquo;45 23 * * *&amp;rdquo;
+filters:
+branches:
+only:
+- master
+jobs:
+- create
+- deploy:
+requires:
+- create
+filters:
+branches:
+only: master
+end_workflow:
+triggers:
+- schedule:
+cron: &amp;ldquo;30 0 * * *&amp;rdquo;
+filters:
+branches:
+only:
+- master
+jobs:
+- destroy
+```&lt;/p&gt;
+&lt;h3 id=&#34;mlops-hinano&#34;&gt;MLOps (hinano)&lt;/h3&gt;
+&lt;p&gt;不正かどうかの確率を計算して返すAPIはhinanoと読んでいます。
+GCSからモデルのpickleファイルを取ってきて、APIコールで特徴量をもらってそれを計算して返すって感じです。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def load_model():
+    project_name = &amp;quot;minute-journey&amp;quot;
+        storage_client = storage.Client(project_name)
+
+    bucket_name = &#39;hinano&#39;
+        bucket = storage_client.get_bucket(bucket_name)
+
+    #アップロードしたファイルをダウンロード
+        blob_download = bucket.get_blob(&#39;xgb_reservation_model.pickle&#39;)
+	    loaded_model = pickle.loads(blob_download.download_as_string())
+	        return loaded_model
+
+def score_predict(clf, reservation_log):
+    y_pred_proba = clf.predict_proba(reservation_log)
+        y_pred = clf.predict(reservation_log)
+	    return y_pred[0], y_pred_proba[0][0]
+	    ```
+
+APIにはFlask使っています。
+結構作るの時間かかりましたが、正直大したことはやっていないです。
+Service層にあるのがこれくらいなので、この辺参考にすれば簡単にできるはずです。
+
+
+## DWHの運用で出てきた問題点
+
+### DataLakeからDataMartを直接作ることを厳しく禁止しすぎた。
+DataWareHouseが肥大化しすぎてドキュメント管理がしんどくなってきた。
+同じようなDataWareHouseができてきて、結局最初の課題に戻ってしまう。
+データモデリングに関しては、他の分野ほど知見が溜まっていないのもあって、ある程度リファクタリング前提で考えていいと思っています。
+というのも、Atomic DesignやDDDのような強力な型があれば乗っかってもいいですが、現状この分野にはそれがないと思うので、
+頻繁にジョインするテーブルがわかったらそれをくっつけて、サブクエリを全て置き換えるというような運用をしてもいいと思います。
+僕らの運用だと1Lake1Houseが多すぎたので、それは本質的ではないと思います。
+
+
+### 謎のDWH
+データの定義って難しいですよね。
+それってuniqueなの？こういうパターンは別で数えるの？それって本質なの？週別なの？土曜から日曜にかけて宿泊した人はどっち扱いなの？
+定義しなきゃいけないことって思っていることの何倍も多いです。
+そういう曖昧な定義を許していると、なんとなく書いたクエリがそうだったからでDWHに曖昧の負債が溜まっていきます。
+本質的なプロダクトの改善に役立てることを考えるなら、データの定義を厳密にすることが重要だと思います。厳密な定義のデータが欲しくなるくらいには、そもそも仮説が練りこまれていないと分析する価値がないとも言えますし、データの定義を考えることは有意義だと思います。
+
+僕は、ディメンショナルモデリング的な考え方にはあまり共感していないというか、そこまでの規模のプロダクトではなかったのかもしれないですが、データの定義に関しては、厳密なものを作り込んでおく必要があるので、ある程度、ファクトとディメンションを分離して、スタースキーマを作成したりすることで、精査されるかもしれません。
+ただ、重要なのはいつでも本質から外れないことです。
+
+
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>主体的な姿勢であることは幸せであること</title>
