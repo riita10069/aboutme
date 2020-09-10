@@ -55,6 +55,25 @@ Manager, MRD, PRD, Resourceful, SEO, GDN, KPI, OKR&lt;/li&gt;
 &lt;h3 id=&#34;philosophy&#34;&gt;Philosophy&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://riita10069.github.io/aboutme/post/first-post/&#34;&gt;主体的な姿勢であること&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://qiita.com/riita10069/items/065ee0b5e32fdc10b22c&#34;&gt;成果を出すために取り組んでいること&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;extra-activities&#34;&gt;Extra Activities&lt;/h3&gt;
+&lt;h4 id=&#34;publish-oss&#34;&gt;publish OSS&lt;/h4&gt;
+&lt;h5 id=&#34;a-hrefhttpsgithubcomriita10069cynthiacynthiaa&#34;&gt;&lt;a href=&#34;https://github.com/riita10069/cynthia&#34;&gt;cynthia&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;made by &lt;strong&gt;golang&lt;/strong&gt;.&lt;br&gt;
+Cynthia ensures test-driven development.&lt;br&gt;
+When you use it in CI, it ensures that untested methods are not introduced.&lt;br&gt;
+The reason for this is that Cynthia alerts you to a function that has no tests.&lt;br&gt;
+テストのない関数を警告してくれます。CIやreviewdogに組み込むことでTDDを徹底できます。\&lt;/p&gt;
+&lt;h5 id=&#34;a-hrefhttpsgithubcomriita10069check_interfacecheck_interfacea&#34;&gt;&lt;a href=&#34;https://github.com/riita10069/check_interface&#34;&gt;check_interface&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;made by &lt;strong&gt;golang&lt;/strong&gt;.&lt;br&gt;
+check_interface warns against interfaces that are not implemented.&lt;br&gt;
+Interfaces that are not implemented in any method are the cause of the nill pointer exception.&lt;br&gt;
+どのメソッドにも実装されていないインターフェイスに警告を出します。&lt;br&gt;
+それによって起こる実行時エラーを防ぎます。\&lt;/p&gt;
+&lt;h5 id=&#34;a-hrefhttpsgithubcomriita10069mozukumozukua&#34;&gt;&lt;a href=&#34;https://github.com/riita10069/mozuku&#34;&gt;mozuku&lt;/a&gt;&lt;/h5&gt;
+&lt;p&gt;made by &lt;strong&gt;golang&lt;/strong&gt;.
+Mozuku returns a thesaurus of the received words. Mozuku is an OSS for natural language processing.
+It is useful when you want to compensate for similar words and notational distortions.
+受け取った単語の類似語やひらがな表記などを返してくれる自然言語処理のためのシソーラスOSSです。&lt;/p&gt;
 </description>
     </item>
     
