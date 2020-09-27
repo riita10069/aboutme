@@ -5,12 +5,20 @@
     <link>https://riita10069.github.io/aboutme/tags/</link>
       <atom:link href="https://riita10069.github.io/aboutme/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Sun, 06 Sep 2020 03:27:38 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Sun, 27 Sep 2020 18:52:37 +0900</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Tags</title>
       <link>https://riita10069.github.io/aboutme/tags/</link>
     </image>
+    
+    <item>
+      <title>退職エントリ</title>
+      <link>https://riita10069.github.io/aboutme/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/</link>
+      <pubDate>Sun, 27 Sep 2020 18:52:37 +0900</pubDate>
+      <guid>https://riita10069.github.io/aboutme/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>DataOps</title>
