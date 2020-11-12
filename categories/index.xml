@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories | Riita</title>
-    <link>https://riita10069.github.io/aboutme/categories/</link>
-      <atom:link href="https://riita10069.github.io/aboutme/categories/index.xml" rel="self" type="application/rss+xml" />
+    <title>Categories | riita10069</title>
+    <link>https://riita10069.me/categories/</link>
+      <atom:link href="https://riita10069.me/categories/index.xml" rel="self" type="application/rss+xml" />
     <description>Categories</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Sun, 27 Sep 2020 18:52:37 +0900</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Categories</title>
-      <link>https://riita10069.github.io/aboutme/categories/</link>
+      <link>https://riita10069.me/categories/</link>
     </image>
     
     <item>
       <title>主体性</title>
-      <link>https://riita10069.github.io/aboutme/categories/%E4%B8%BB%E4%BD%93%E6%80%A7/</link>
+      <link>https://riita10069.me/categories/%E4%B8%BB%E4%BD%93%E6%80%A7/</link>
       <pubDate>Sun, 27 Sep 2020 18:52:37 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/categories/%E4%B8%BB%E4%BD%93%E6%80%A7/</guid>
+      <guid>https://riita10069.me/categories/%E4%B8%BB%E4%BD%93%E6%80%A7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>データ基盤</title>
-      <link>https://riita10069.github.io/aboutme/categories/%E3%83%86%E3%83%BC%E3%82%BF%E5%9F%BA%E7%9B%A4/</link>
+      <link>https://riita10069.me/categories/%E3%83%86%E3%83%BC%E3%82%BF%E5%9F%BA%E7%9B%A4/</link>
       <pubDate>Sun, 06 Sep 2020 03:27:38 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/categories/%E3%83%86%E3%83%BC%E3%82%BF%E5%9F%BA%E7%9B%A4/</guid>
+      <guid>https://riita10069.me/categories/%E3%83%86%E3%83%BC%E3%82%BF%E5%9F%BA%E7%9B%A4/</guid>
       <description></description>
     </item>
     
     <item>
       <title>幸福論</title>
-      <link>https://riita10069.github.io/aboutme/categories/%E5%B9%B8%E7%A6%8F%E8%AB%96/</link>
+      <link>https://riita10069.me/categories/%E5%B9%B8%E7%A6%8F%E8%AB%96/</link>
       <pubDate>Mon, 17 Aug 2020 18:39:21 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/categories/%E5%B9%B8%E7%A6%8F%E8%AB%96/</guid>
+      <guid>https://riita10069.me/categories/%E5%B9%B8%E7%A6%8F%E8%AB%96/</guid>
       <description></description>
     </item>
     

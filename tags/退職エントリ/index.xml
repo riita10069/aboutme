@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>退職エントリ | Riita</title>
-    <link>https://riita10069.github.io/aboutme/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/</link>
-      <atom:link href="https://riita10069.github.io/aboutme/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/index.xml" rel="self" type="application/rss+xml" />
+    <title>退職エントリ | riita10069</title>
+    <link>https://riita10069.me/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/</link>
+      <atom:link href="https://riita10069.me/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/index.xml" rel="self" type="application/rss+xml" />
     <description>退職エントリ</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Sun, 27 Sep 2020 18:52:37 +0900</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>退職エントリ</title>
-      <link>https://riita10069.github.io/aboutme/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/</link>
+      <link>https://riita10069.me/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/</link>
     </image>
     
     <item>
       <title>Tech Designという会社でCTOをした。</title>
-      <link>https://riita10069.github.io/aboutme/post/cto/</link>
+      <link>https://riita10069.me/post/cto/</link>
       <pubDate>Sun, 27 Sep 2020 18:52:37 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/post/cto/</guid>
+      <guid>https://riita10069.me/post/cto/</guid>
       <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;私は、2020年の2月から8ヶ月間、株式会社Tech Designという会社でCTO(最高技術責任者)をしていました。
 (役員ではなく、株式などは持たない業務委託契約なので、アルバイトみたいな感じですが。)

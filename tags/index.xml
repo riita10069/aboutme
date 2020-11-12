@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags | Riita</title>
-    <link>https://riita10069.github.io/aboutme/tags/</link>
-      <atom:link href="https://riita10069.github.io/aboutme/tags/index.xml" rel="self" type="application/rss+xml" />
+    <title>Tags | riita10069</title>
+    <link>https://riita10069.me/tags/</link>
+      <atom:link href="https://riita10069.me/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Sun, 27 Sep 2020 18:52:37 +0900</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Tags</title>
-      <link>https://riita10069.github.io/aboutme/tags/</link>
+      <link>https://riita10069.me/tags/</link>
     </image>
     
     <item>
       <title>退職エントリ</title>
-      <link>https://riita10069.github.io/aboutme/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/</link>
+      <link>https://riita10069.me/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/</link>
       <pubDate>Sun, 27 Sep 2020 18:52:37 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/</guid>
+      <guid>https://riita10069.me/tags/%E9%80%80%E8%81%B7%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AA/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DataOps</title>
-      <link>https://riita10069.github.io/aboutme/tags/dataops/</link>
+      <link>https://riita10069.me/tags/dataops/</link>
       <pubDate>Sun, 06 Sep 2020 03:27:38 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/tags/dataops/</guid>
+      <guid>https://riita10069.me/tags/dataops/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DWH</title>
-      <link>https://riita10069.github.io/aboutme/tags/dwh/</link>
+      <link>https://riita10069.me/tags/dwh/</link>
       <pubDate>Sun, 06 Sep 2020 03:27:38 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/tags/dwh/</guid>
+      <guid>https://riita10069.me/tags/dwh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>幸福論</title>
-      <link>https://riita10069.github.io/aboutme/tags/%E5%B9%B8%E7%A6%8F%E8%AB%96/</link>
+      <link>https://riita10069.me/tags/%E5%B9%B8%E7%A6%8F%E8%AB%96/</link>
       <pubDate>Mon, 17 Aug 2020 18:39:21 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/tags/%E5%B9%B8%E7%A6%8F%E8%AB%96/</guid>
+      <guid>https://riita10069.me/tags/%E5%B9%B8%E7%A6%8F%E8%AB%96/</guid>
       <description></description>
     </item>
     

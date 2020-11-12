@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>データ基盤 | Riita</title>
-    <link>https://riita10069.github.io/aboutme/categories/%E3%83%86%E3%83%BC%E3%82%BF%E5%9F%BA%E7%9B%A4/</link>
-      <atom:link href="https://riita10069.github.io/aboutme/categories/%E3%83%86%E3%83%BC%E3%82%BF%E5%9F%BA%E7%9B%A4/index.xml" rel="self" type="application/rss+xml" />
+    <title>データ基盤 | riita10069</title>
+    <link>https://riita10069.me/categories/%E3%83%86%E3%83%BC%E3%82%BF%E5%9F%BA%E7%9B%A4/</link>
+      <atom:link href="https://riita10069.me/categories/%E3%83%86%E3%83%BC%E3%82%BF%E5%9F%BA%E7%9B%A4/index.xml" rel="self" type="application/rss+xml" />
     <description>データ基盤</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Sun, 06 Sep 2020 03:27:38 +0900</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>データ基盤</title>
-      <link>https://riita10069.github.io/aboutme/categories/%E3%83%86%E3%83%BC%E3%82%BF%E5%9F%BA%E7%9B%A4/</link>
+      <link>https://riita10069.me/categories/%E3%83%86%E3%83%BC%E3%82%BF%E5%9F%BA%E7%9B%A4/</link>
     </image>
     
     <item>
       <title>【DataOps】大学2年生の時に作った最強のDataPlatform</title>
-      <link>https://riita10069.github.io/aboutme/post/data-ops/</link>
+      <link>https://riita10069.me/post/data-ops/</link>
       <pubDate>Sun, 06 Sep 2020 03:27:38 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/post/data-ops/</guid>
+      <guid>https://riita10069.me/post/data-ops/</guid>
       <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;みなさんこんにちは。りいたです。
 自分のブログ初の技術的な記事の投稿なので、それに相応しいような僕が初めて自力でやったプロジェクトについてお話しします。

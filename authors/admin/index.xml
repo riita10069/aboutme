@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Riita</title>
-    <link>https://riita10069.github.io/aboutme/authors/admin/</link>
-      <atom:link href="https://riita10069.github.io/aboutme/authors/admin/index.xml" rel="self" type="application/rss+xml" />
-    <description>Riita</description>
+    <title>riita10069</title>
+    <link>https://riita10069.me/authors/admin/</link>
+      <atom:link href="https://riita10069.me/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    <description>riita10069</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Sun, 06 Sep 2020 03:27:38 +0900</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
-      <title>Riita</title>
-      <link>https://riita10069.github.io/aboutme/authors/admin/</link>
+      <title>riita10069</title>
+      <link>https://riita10069.me/authors/admin/</link>
     </image>
     
     <item>
       <title>【DataOps】大学2年生の時に作った最強のDataPlatform</title>
-      <link>https://riita10069.github.io/aboutme/post/data-ops/</link>
+      <link>https://riita10069.me/post/data-ops/</link>
       <pubDate>Sun, 06 Sep 2020 03:27:38 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/post/data-ops/</guid>
+      <guid>https://riita10069.me/post/data-ops/</guid>
       <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;みなさんこんにちは。りいたです。
 自分のブログ初の技術的な記事の投稿なので、それに相応しいような僕が初めて自力でやったプロジェクトについてお話しします。
@@ -458,9 +458,9 @@ Service層にあるのがこれくらいなので、この辺参考にすれば�
     
     <item>
       <title>主体的な姿勢であることは幸せであること</title>
-      <link>https://riita10069.github.io/aboutme/post/first-post/</link>
+      <link>https://riita10069.me/post/first-post/</link>
       <pubDate>Mon, 17 Aug 2020 18:39:21 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/post/first-post/</guid>
+      <guid>https://riita10069.me/post/first-post/</guid>
       <description>&lt;h2 id=&#34;死ぬために生きること幸せに生きること&#34;&gt;死ぬために生きること、幸せに生きること&lt;/h2&gt;
 &lt;p&gt;あなたは幸せに生きたい。何か面白いことをして生きていたいと思ったことはありますか？&lt;/p&gt;
 &lt;p&gt;ぼくは、大学に入学するまでは、たったの一度も思ったことなかったんですけど、大学に入学してからはそれをすごく強く思うようになりました。

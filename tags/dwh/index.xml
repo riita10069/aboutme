@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DWH | Riita</title>
-    <link>https://riita10069.github.io/aboutme/tags/dwh/</link>
-      <atom:link href="https://riita10069.github.io/aboutme/tags/dwh/index.xml" rel="self" type="application/rss+xml" />
+    <title>DWH | riita10069</title>
+    <link>https://riita10069.me/tags/dwh/</link>
+      <atom:link href="https://riita10069.me/tags/dwh/index.xml" rel="self" type="application/rss+xml" />
     <description>DWH</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Sun, 06 Sep 2020 03:27:38 +0900</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>DWH</title>
-      <link>https://riita10069.github.io/aboutme/tags/dwh/</link>
+      <link>https://riita10069.me/tags/dwh/</link>
     </image>
     
     <item>
       <title>【DataOps】大学2年生の時に作った最強のDataPlatform</title>
-      <link>https://riita10069.github.io/aboutme/post/data-ops/</link>
+      <link>https://riita10069.me/post/data-ops/</link>
       <pubDate>Sun, 06 Sep 2020 03:27:38 +0900</pubDate>
-      <guid>https://riita10069.github.io/aboutme/post/data-ops/</guid>
+      <guid>https://riita10069.me/post/data-ops/</guid>
       <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;みなさんこんにちは。りいたです。
 自分のブログ初の技術的な記事の投稿なので、それに相応しいような僕が初めて自力でやったプロジェクトについてお話しします。
