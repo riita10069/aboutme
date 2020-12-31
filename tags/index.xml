@@ -5,12 +5,28 @@
     <link>https://riita10069.me/tags/</link>
       <atom:link href="https://riita10069.me/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Sun, 27 Sep 2020 18:52:37 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Thu, 31 Dec 2020 18:19:39 +0900</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Tags</title>
       <link>https://riita10069.me/tags/</link>
     </image>
+    
+    <item>
+      <title>幸福論</title>
+      <link>https://riita10069.me/tags/%E5%B9%B8%E7%A6%8F%E8%AB%96/</link>
+      <pubDate>Thu, 31 Dec 2020 18:19:39 +0900</pubDate>
+      <guid>https://riita10069.me/tags/%E5%B9%B8%E7%A6%8F%E8%AB%96/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>組織論</title>
+      <link>https://riita10069.me/tags/%E7%B5%84%E7%B9%94%E8%AB%96/</link>
+      <pubDate>Thu, 31 Dec 2020 18:19:39 +0900</pubDate>
+      <guid>https://riita10069.me/tags/%E7%B5%84%E7%B9%94%E8%AB%96/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>退職エントリ</title>
@@ -33,14 +49,6 @@
       <link>https://riita10069.me/tags/dwh/</link>
       <pubDate>Sun, 06 Sep 2020 03:27:38 +0900</pubDate>
       <guid>https://riita10069.me/tags/dwh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>幸福論</title>
-      <link>https://riita10069.me/tags/%E5%B9%B8%E7%A6%8F%E8%AB%96/</link>
-      <pubDate>Mon, 17 Aug 2020 18:39:21 +0900</pubDate>
-      <guid>https://riita10069.me/tags/%E5%B9%B8%E7%A6%8F%E8%AB%96/</guid>
       <description></description>
     </item>
     
