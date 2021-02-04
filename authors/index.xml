@@ -5,12 +5,20 @@
     <link>https://riita10069.me/authors/</link>
       <atom:link href="https://riita10069.me/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Thu, 31 Dec 2020 18:19:39 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Authors</title>
       <link>https://riita10069.me/authors/</link>
     </image>
+    
+    <item>
+      <title>ryota yamada</title>
+      <link>https://riita10069.me/authors/ryota-yamada/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://riita10069.me/authors/ryota-yamada/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title></title>
@@ -68,13 +76,15 @@ Manager, MRD, PRD, Resourceful, SEO, GDN, KPI, OKR&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://educ.titech.ac.jp/ict/&#34;&gt;東京工業大学工学院情報通信系&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://sites.google.com/view/data-science-lab/home&#34;&gt;ダニエル・ベラール研究室(Data Science Laboratory)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://jizi.jp/&#34;&gt;工大祭実行委員会 渉内局(retired)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jizi.jp/&#34;&gt;工大祭実行委員会 渉内局 模擬店企画担当 資料担当(OB)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://volare.site/&#34;&gt;学生エンジニア団体Volare&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.venture-tnk.com/&#34;&gt;東大起業サークルTNK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.venture-tnk.com/&#34;&gt;東大起業サークルTNK(OB)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;philosophy&#34;&gt;Philosophy&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://riita10069.github.io/aboutme/post/first-post/&#34;&gt;主体的な姿勢であること&lt;/a&gt;
-&lt;a href=&#34;https://riita10069.github.io/aboutme/post/the-best-leaders/&#34;&gt;私が目指す、全員がリーダーの組織とは何か&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://riita10069.github.io/aboutme/post/first-post/&#34;&gt;主体的な姿勢であること&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://riita10069.github.io/aboutme/post/the-best-leaders/&#34;&gt;私が目指す、全員がリーダーの組織とは何か&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;extra-activities&#34;&gt;Extra Activities&lt;/h3&gt;
 &lt;h4 id=&#34;publish-oss&#34;&gt;publish OSS&lt;/h4&gt;
 &lt;h5 id=&#34;a-hrefhttpsgithubcomriita10069cynthiacynthiaa&#34;&gt;&lt;a href=&#34;https://github.com/riita10069/cynthia&#34;&gt;cynthia&lt;/a&gt;&lt;/h5&gt;
@@ -94,6 +104,7 @@ Interfaces that are not implemented in any method are the cause of the nill poin
 Mozuku returns a thesaurus of the received words. Mozuku is an OSS for natural language processing.
 It is useful when you want to compensate for similar words and notational distortions.
 受け取った単語の類似語やひらがな表記などを返してくれる自然言語処理のためのシソーラスOSSです。&lt;/p&gt;
+&lt;p&gt;OB&lt;/p&gt;
 </description>
     </item>
     

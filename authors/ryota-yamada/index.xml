@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Publications | riita10069</title>
-    <link>https://riita10069.me/publication/</link>
-      <atom:link href="https://riita10069.me/publication/index.xml" rel="self" type="application/rss+xml" />
-    <description>Publications</description>
+    <title>ryota yamada | riita10069</title>
+    <link>https://riita10069.me/authors/ryota-yamada/</link>
+      <atom:link href="https://riita10069.me/authors/ryota-yamada/index.xml" rel="self" type="application/rss+xml" />
+    <description>ryota yamada</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>riita10069@gmail.com</copyright><lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
-      <title>Publications</title>
-      <link>https://riita10069.me/publication/</link>
+      <title>ryota yamada</title>
+      <link>https://riita10069.me/authors/ryota-yamada/</link>
     </image>
     
     <item>
