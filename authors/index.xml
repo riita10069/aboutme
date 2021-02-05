@@ -104,7 +104,6 @@ Interfaces that are not implemented in any method are the cause of the nill poin
 Mozuku returns a thesaurus of the received words. Mozuku is an OSS for natural language processing.
 It is useful when you want to compensate for similar words and notational distortions.
 受け取った単語の類似語やひらがな表記などを返してくれる自然言語処理のためのシソーラスOSSです。&lt;/p&gt;
-&lt;p&gt;OB&lt;/p&gt;
 </description>
     </item>
     
